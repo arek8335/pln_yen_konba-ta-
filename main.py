@@ -19,13 +19,13 @@ def run():
             print(bye_info)
             sys.exit()
         elif is_number(user_input):
-            print_result()
+            print_result(user_input)
         else:
             print(wrong_info)
 
 
 def is_correct_exit(text: str):
-    return text.lower() == "exit"
+    return text.strip().lower() == "exit"
 
 
 def is_number(num: str):
@@ -33,7 +33,9 @@ def is_number(num: str):
 
 
 def print_result(num: str):
-    print(f"{num}ズウォティは{round(converter.convert(num, 'PLN', 'JPY'), 2)}￥です")
+    print(
+        f"{num}ズウォティはおよそ{round(converter.convert(num, 'PLN', 'JPY'), 2)}円です"
+    )
 
 
 run()
